@@ -41,17 +41,24 @@ query_feilds = {
 }
 
 d1 = {
-	'name': 'Ali',
+		'name': 'Ali',
 		'family':'varfan',
 		'sex':'male',
 		'mem_id': '1'
 }
 
 d2 = {
-	'name': 'Selale',
+		'name': 'Selale',
 		'family':'Ozbay',
 		'sex':'female',
 		'id':'2'
+}
+
+d3 = {
+		'name': 'Bita',
+		'family':'Varfan',
+		'sex':'female',
+		'id':'3'
 }
 
 query_format = {
@@ -152,3 +159,26 @@ q[1] = dddd
 
 print('q1',q[1])
 print('Finished')
+
+
+import time
+print(time.localtime())
+t= time.localtime()
+# print(str(t[0])+"-"+str(t[1])+"-")
+t2 = str(t[0])+"-"+str(t[1])+"-"+str(t[2])+"T"+str(t[3])+":"+str(t[4])+":"+str(t[5])
+print(t2)
+
+
+msg_data = {
+  "header": {
+    "type": "CMD",
+    "version": "0.1.0",
+    "metamodel": "ropod-msg-schema.json",
+    "msg_id": "0d05d0bc-f1d2-4355-bd88-edf44e2475c8",
+    "timestamp": t2
+  },
+  "payload": {
+    "metamodel": "ropod-demo-cmd-schema.json"}}
+
+print(msg_data['header']['timestamp'], msg_data['payload'])
+
